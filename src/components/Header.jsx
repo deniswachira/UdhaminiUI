@@ -2,11 +2,13 @@ import { useContext } from 'react'
 import { FaHome, FaPencilAlt, FaSignInAlt, FaUser, FaCogs, FaUserAltSlash, FaMoneyCheck, FaMoneyCheckAlt } from 'react-icons/fa';
 import { Link } from "react-router-dom";
 import { Context } from '../context/Context';
+import { useNavigate } from "react-router-dom"
 function Header() {
   const { user, dispatch } = useContext(Context);
+  const navigate = useNavigate();
   const handleLogout = () => {
     dispatch({ type: "LOGOUT" });
-    window.location.replace("/")
+    navigate("/");
   }
   return (
     <div className="navbar bg-base-300 ">
